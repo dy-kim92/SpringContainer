@@ -11,7 +11,8 @@ public class SpringContainerApp {
 	public static void main(String[] args) {
 		
 //		testBeanFactory();
-		testApplicationContext();
+//		testApplicationContext();
+		testBeanFactory2();
 		
 	}
 	
@@ -79,6 +80,14 @@ public class SpringContainerApp {
 		user = (User)bf.getBean("member");	//	name이 user인 bean 획득하기
 		System.out.println("by name : " + user);
 		
+	}
+	
+	private static void testBeanFactory2() {
+		BeanFactory bf =
+				new XmlBeanFactory(new ClassPathResource("config/applicationContext2.xml"));
+
+		User user = (User)bf.getBean("user");
+		System.out.println("by Component Scan:" + user);
 	}
 
 }
